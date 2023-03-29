@@ -13,36 +13,30 @@ const signup = async (req, res) => {
             userName: req.body.userName,
             password: req.body.password,
             email: req.body.email
-
-
         });
 
-        const signUpDetailsSave = signUpDetails.save();
-        jwt.sign(
+        const signUpDetailsSave = await signUpDetails.save();
+        console.log(signUpDetailsSave, "signUpDetailsSave")
+        const token = jwt.sign(
             {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 phoneNumber: req.body.phoneNumber,
                 email: req.body.email,
                 userName: req.body.userName,
-
             },
             "secretkey",
-            { expiresIn: "2h" },
-            (err, token) => {
-                return res.status(200).json({
-                    message: "data saved succesfully nd token is generated",
-                    data: signUpDetailsSave,
-                    token,
-                });
-            }
-        );
-
-
+            { expiresIn: "24h" })
+        console.log(token, "token")
+        return res.status(200).json({
+            message: "data saved succesfully nd token is generated",
+            data: signUpDetailsSave,
+            token: token,
+        });
     } else {
         return res.json({
             msg: "email alredy exists"
-        })
+        });
     }
 };
 

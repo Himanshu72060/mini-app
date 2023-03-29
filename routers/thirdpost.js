@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const schema = require("../models/schema/otherpost_schema");
+const schema = require("../models/schema/third_schema");
 
-const post = multer({
+const upload = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, "otherpostupload")
+            cb(null, "thirdpostupload")
         },
         filename: function (req, file, cb) {
             cb(null, file.fieldname + "-" + Date.now() + ".jpg")
         }
     })
-}).single("other_post")
+}).single("third_post")
 
-const otherposts = (post, async (req, res) => {
+const thirdpost = (upload, async (req, res) => {
     const image = await new schema({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -27,7 +27,12 @@ const otherposts = (post, async (req, res) => {
 
     return res.json({
         msg: "done",
-        image
+        image: image
+
     })
 });
-module.exports = otherposts;
+
+
+
+
+module.exports = thirdpost;
