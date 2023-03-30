@@ -8,6 +8,9 @@ const signupSchema = new Schema({
     phoneNumber: { type: Number, require: true },
     userName: { type: String, required: true },
     password: { type: Number, required: true },
-    email: { type: String }
+    email: { type: String },
+    city: { type: String, require: true },
+    country: { type: String, require: true },
+    bio: { type: String, require: true }
 });
 module.exports = Model("signup", signupSchema);

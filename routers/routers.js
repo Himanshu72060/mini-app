@@ -12,6 +12,7 @@ const thirdpost = require("./thirdpost");
 const postimage = require("./getmypost");
 const otherimage = require("./getotherpost");
 const thirdimage = require("./getthirdpost");
+const userupdate = require("./user_update");
 
 router.post("/login", login);
 router.post("/signup", signup);
@@ -22,6 +23,7 @@ router.post("/thirdpost", thirdpost);
 router.get("/postimage", postimage);
 router.get("/otherimage", otherimage);
 router.get("/thirdimage", thirdimage);
+router.post("/userupdate/:_id", userupdate);
 
 
 
