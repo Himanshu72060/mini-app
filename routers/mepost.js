@@ -1,8 +1,7 @@
-const schema = require("../models/schema/otherpost_schema");
-
+const postSchema = require("../models/schema/mepost_schema")
 module.exports = async (req, res) => {
     try {
-        const uplaod = await new schema({
+        const uplaod = await new postSchema({
             image: req.body.image,
             firstName: req.body.firstName,
             lastName: req.body.lastName,

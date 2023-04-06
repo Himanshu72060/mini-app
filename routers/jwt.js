@@ -1,4 +1,4 @@
-const jwt = require("Jsonwebtoken");
+const jwt = require("jsonwebtoken");
 module.exports = async (req, res, next) => {
     const verifyToken = req.headers["token"];
     const useToken = verifyToken.split(" ");
