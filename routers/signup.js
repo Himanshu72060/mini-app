@@ -2,7 +2,7 @@ const express = require("express");
 const schema = require("../models/schema/signup_schema")
 const jwt = require("jsonwebtoken");
 
-
+// signup api 
 const signup = async (req, res) => {
     const email = await schema.find({ email: req.body.email })
     if (email.length === 0) {
@@ -17,6 +17,7 @@ const signup = async (req, res) => {
 
         const signUpDetailsSave = await signUpDetails.save();
         console.log(signUpDetailsSave, "signUpDetailsSave")
+        // token 
         const token = jwt.sign(
             {
                 firstName: req.body.firstName,
