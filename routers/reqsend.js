@@ -10,13 +10,18 @@ const reqsend = async (req, res) => {
     console.log(searchuser[0]._id, "ll");
     if (searchuser.length !== 0) {
         const findId = searchuser[0]._id;
-        console.log(findId, "kkkkk");
-
         const sendreq = new reqschema({
             sendBy: req.body.sendBy,
             sendTo: findId,
         })
-        console.log(sendreq, "fghjk");
+        if (searchuser.length === 0) {
+            searchuser[0]
+        }
+        else {
+            return res.json({
+                msg: "cansal req"
+            })
+        }
         const saveData = await sendreq.save();
         return res.json({
             msg: "send req",
