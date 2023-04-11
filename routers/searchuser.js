@@ -1,7 +1,6 @@
 const schema = require("../models/schema/signup_schema");
 
-
-const searchuser = async (req, res) => {
+module.exports = async (req, res) => {
     try {
         const { searchValue } = req.params;
         const query = searchValue.split(" ");
@@ -24,4 +23,3 @@ const searchuser = async (req, res) => {
         });
     }
 };
-module.exports = searchuser;

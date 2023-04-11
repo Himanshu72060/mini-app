@@ -1,7 +1,7 @@
 const express = require("express");
-const schema = require("../models/schema/signup_schema")
+const schema = require("../models/schema/signup_schema");
 
-const userupdate = async (req, res) => {
+module.exports = async (req, res) => {
     const userupdate = await schema.findByIdAndUpdate(
         { _id: req.params._id },
         {
@@ -18,4 +18,3 @@ const userupdate = async (req, res) => {
     });
 };
 
-module.exports = userupdate;

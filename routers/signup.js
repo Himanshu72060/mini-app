@@ -3,7 +3,7 @@ const schema = require("../models/schema/signup_schema")
 const jwt = require("jsonwebtoken");
 
 // signup api 
-const signup = async (req, res) => {
+module.exports = async (req, res) => {
     const email = await schema.find({ email: req.body.email })
     if (email.length === 0) {
         const signUpDetails = await new schema({
@@ -42,4 +42,3 @@ const signup = async (req, res) => {
 };
 
 
-module.exports = signup;

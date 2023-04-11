@@ -2,7 +2,7 @@ const reqschema = require("../models/schema/send_schema");
 const schema = require("../models/schema/signup_schema");
 
 
-const reqsend = async (req, res) => {
+module.exports = async (req, res) => {
     let { srchuser } = req.params;
 
     const searchuser = await schema.find({
@@ -26,4 +26,3 @@ const reqsend = async (req, res) => {
         res.json({ msg: "already sent frnd req to this user" });
     };
 };
-module.exports = reqsend;

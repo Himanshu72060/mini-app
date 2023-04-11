@@ -3,7 +3,7 @@ const router = express.Router();
 const schema = require("../models/schema/login_schema");
 const jwt = require("jsonwebtoken");
 
-const login = async (req, res) => {
+module.exports = async (req, res) => {
     const data = await schema.find({ email: req.body.email });
     if (data.length !== 0) {
         if (data[0].password === req.body.password) {
@@ -35,4 +35,3 @@ const login = async (req, res) => {
 };
 
 
-module.exports = login;

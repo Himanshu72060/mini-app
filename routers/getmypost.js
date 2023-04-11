@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const schema = require("../models/schema/mepost_schema");
-const postimage = async (req, res) => {
+module.exports = async (req, res) => {
     // const oldschema = await schema.find()
 
 
@@ -20,4 +20,3 @@ const postimage = async (req, res) => {
 
 };
 
-module.exports = postimage;
